@@ -1,0 +1,29 @@
+    if held_keys['w']:
+        player.y += speed * time.dt
+    elif held_keys['s']:
+        player.y -= speed * time.dt
+
+
+
+
+# create a 2D camera
+camera.orthographic = True
+camera.fov = 20
+
+# create a player object
+player = Entity(model='quad', scale=(2, 3),y = -3,x = -9,  color=color.white)
+
+# define player movement speed
+speed = 5
+
+# define update function for player movement
+def update():
+    # move player left and right
+    if held_keys['a']:
+        player.x -= speed * time.dt
+    elif held_keys['d']:
+        player.x += speed * time.dt
+    elif held_keys['space']:
+        player.y += 5 * time.dt
+        time.sleep(1)
+        player.y -= 5 * time.dt
